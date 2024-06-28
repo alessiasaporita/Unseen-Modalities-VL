@@ -30,6 +30,7 @@ if __name__ == '__main__':
     parser.add_argument("--batch-size", default=1, type=int) 
     parser.add_argument('--image_path', type=str, default='')
     parser.add_argument('--text_path', type=str, default='')
+    parser.add_argument('--finetuning', type=bool, default=False)
     
     
     # missing modality config
@@ -67,14 +68,13 @@ if __name__ == '__main__':
     print(device)
 
     model, preprocess = clip.load(args.clip_model, device=device)
-    """
-    checkpoint = torch.load(args.image_path, map_location=torch.device('cpu')) #, map_location=torch.device('cpu')
-    model.visual.load_state_dict(checkpoint["visual"])
-    checkpoint = torch.load(args.text_path, map_location=torch.device('cpu')) #, map_location=torch.device('cpu')
-    for name, param in model.named_parameters():
-        if name in checkpoint:
-            param.data.copy_(checkpoint[name].data)
-    """
+    if finetuning:
+        checkpoint = torch.load(args.image_path, map_location=torch.device('cpu')) 
+        model.visual.load_state_dict(checkpoint["visual"])
+        checkpoint = torch.load(args.text_path, map_location=torch.device('cpu')) 
+        for name, param in model.named_parameters():
+            if name in checkpoint:
+                param.data.copy_(checkpoint[name].data)
     model.eval()
     
     dm = MTDataModule(preprocess, preprocess, preprocess, args)  

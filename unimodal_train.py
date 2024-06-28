@@ -166,7 +166,7 @@ if __name__ == "__main__":
         "--save_name", type=str, help="name to save the model", default="1e-1",
     ) 
     parser.add_argument(
-        "--modality", type=str, help="text or image", default="image",
+        "--modality", type=str, help="text or image", default="image", choices=["image", "text"],
     ) 
     parser.add_argument(
         "--resume_training", type=bool, help="resume training or not", default=False
