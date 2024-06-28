@@ -1,0 +1,11 @@
+*.pt
+.vscode/
+__pycache__/
+Output/
+*.sh
+*.npy
+wandb/
+
+
+!bash2.sh
+!webdataset.sh
