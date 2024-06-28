@@ -133,12 +133,12 @@ class HateMemesDataset(BaseDataset):
         image_tensor = self.get_image(index)["image"]
         
         # missing image, dummy image is all-one image
-        if self.missing_table[image_index] == 2 or simulate_missing_type == 2:
+        if self.missing_table[image_index] == 2:
             for idx in range(len(image_tensor)):
                 image_tensor[idx] = torch.ones(image_tensor[idx].size()).float()
             
         #missing text, dummy text is ''
-        if self.missing_table[image_index] == 1 or simulate_missing_type == 1:
+        if self.missing_table[image_index] == 1:
             text = ''
         else:
             text = self.get_text(index)["text"]
