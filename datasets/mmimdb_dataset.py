@@ -79,7 +79,7 @@ class MMIMDBDataset(BaseDataset):
                 image_pseudo = torch.zeros((23,))
             else:
                 image_mask = np.ones((512, 1))
-                image_pseudo_path = "/work/tesi_asaporita/UnseenModalities-VL/mmimdb/image/image_pseudo/" + str(image_index) + ".npy"
+                image_pseudo_path = "/work/tesi_asaporita/checkpoint/mmimdb/image/image_pseudo/" + str(image_index) + ".npy"
                 if os.path.exists(image_pseudo_path):
                     image_pseudo = torch.Tensor(np.load(image_pseudo_path)) #(N, 23)
                     image_pseudo = torch.mean(image_pseudo[-10:], dim=0)
@@ -93,7 +93,7 @@ class MMIMDBDataset(BaseDataset):
                 text_pseudo = torch.zeros((23,))
             else:
                 text_mask = np.ones((512, 1))
-                text_pseudo_path = "/work/tesi_asaporita/UnseenModalities-VL/mmimdb/text/text_pseudo/" + str(index) + ".npy"
+                text_pseudo_path = "/work/tesi_asaporita/checkpoint/mmimdb/text/text_pseudo/" + str(index) + ".npy"
                 if os.path.exists(text_pseudo_path):
                     text_pseudo = torch.Tensor(np.load(text_pseudo_path)) #(N, 23)
                     text_pseudo = torch.mean(text_pseudo[-10:], dim=0) #(23, )

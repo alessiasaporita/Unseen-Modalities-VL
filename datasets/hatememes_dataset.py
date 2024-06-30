@@ -78,7 +78,7 @@ class HateMemesDataset(BaseDataset):
                 image_pseudo = torch.zeros((2,))
             else:
                 image_mask = np.ones((512, 1))
-                image_pseudo_path = "/work/tesi_asaporita/UnseenModalities-VL/Hatefull_Memes/image/image_pseudo2/" + str(index) + ".npy"
+                image_pseudo_path = "/work/tesi_asaporita/checkpoint/Hatefull_Memes/image/image_pseudo2/" + str(index) + ".npy"
                 if os.path.exists(image_pseudo_path):
                     image_pseudo = torch.Tensor(np.load(image_pseudo_path)) #(N, 2)
                     image_pseudo = torch.mean(image_pseudo[-10:], dim=0)
@@ -92,7 +92,7 @@ class HateMemesDataset(BaseDataset):
                 text_pseudo = torch.zeros((2,))
             else:
                 text_mask = np.ones((512, 1))
-                text_pseudo_path = "/work/tesi_asaporita/UnseenModalities-VL/Hatefull_Memes/text/text_pseudo2/" + str(index) + ".npy"
+                text_pseudo_path = "/work/tesi_asaporita/checkpoint/Hatefull_Memes/text/text_pseudo2/" + str(index) + ".npy"
                 if os.path.exists(text_pseudo_path):
                     try:
                         text_pseudo = torch.Tensor(np.load(text_pseudo_path)) #(N, 2)

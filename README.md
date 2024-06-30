@@ -19,7 +19,7 @@ python make_arrow.py --dataset [DATASET] --root [YOUR_DATASET_ROOT]
 ```
 
 ### Web dataset
-We create the webdatset by `webdatset.py`
+We create the webdatset by `web_datset.py`
 
 ### Run Demo
 * We provide the splits for training, validation and testing in the `annotations` folder. 

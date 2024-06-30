@@ -56,8 +56,8 @@ class MTDataModule():
             collate_fn=self.collate,
             shuffle=True,
         )
-        #return loader
-        return self.train_dataset
+        return loader
+        #return self.train_dataset
 
     def val_dataloader(self, batch_size=None):
         loader = DataLoader(
@@ -68,8 +68,8 @@ class MTDataModule():
             collate_fn=self.collate,
             shuffle=True,
         )
-        #return loader
-        return self.val_dataset
+        return loader
+        #return self.val_dataset
 
     def test_dataloader(self):
         loader = DataLoader(

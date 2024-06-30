@@ -55,7 +55,7 @@ def save_pseudo_labels(outputs, keys, modality, dataset):
     for i in range(len(keys)): 
         #------------RGB------------
         if modality=='image':  
-            save_path = "/work/tesi_asaporita/UnseenModalities-VL/{}/image/image_pseudo/{}.npy".format(dataset, keys[i])
+            save_path = "/work/tesi_asaporita/checkpoint/{}/image/image_pseudo/{}.npy".format(dataset, keys[i])
             if os.path.exists(save_path): #predictions for i-th sample 
                 image_pseudo = np.load(save_path)
                 if image_pseudo.shape[0]>=40:
@@ -63,10 +63,10 @@ def save_pseudo_labels(outputs, keys, modality, dataset):
                 image_pseudo = np.concatenate((image_pseudo, detached_outputs[i].unsqueeze(0).numpy()))
             else:
                 image_pseudo=detached_outputs[i].unsqueeze(0).numpy()
-            np.save("/work/tesi_asaporita/UnseenModalities-VL/{}/image/image_pseudo/{}.npy".format(dataset, keys[i]), image_pseudo)
+            np.save("/work/tesi_asaporita/checkpoint/{}/image/image_pseudo/{}.npy".format(dataset, keys[i]), image_pseudo)
         #------------Audio------------
         else: #Text 
-            save_path = "/work/tesi_asaporita/UnseenModalities-VL/{}/text/text_pseudo/{}.npy".format(dataset, keys[i])
+            save_path = "/work/tesi_asaporita/checkpoint/{}/text/text_pseudo/{}.npy".format(dataset, keys[i])
             if os.path.exists(save_path):
                 text_pseudo = np.load(save_path)
                 if text_pseudo.shape[0]>=40:
@@ -74,7 +74,7 @@ def save_pseudo_labels(outputs, keys, modality, dataset):
                 text_pseudo = np.concatenate((text_pseudo, detached_outputs[i].unsqueeze(0).numpy()))
             else:
                 text_pseudo=detached_outputs[i].unsqueeze(0).numpy()
-            np.save("/work/tesi_asaporita/UnseenModalities-VL/{}/text/text_pseudo/{}.npy".format(dataset, keys[i]), text_pseudo)
+            np.save("/work/tesi_asaporita/checkpoint/{}/text/text_pseudo/{}.npy".format(dataset, keys[i]), text_pseudo)
 
 class LabelSmoothLoss(nn.Module):
     def __init__(self, smoothing=0.0):
@@ -161,7 +161,7 @@ if __name__ == "__main__":
         "--lr", type=float, help="learning rate", default=5e-6
     )  
     parser.add_argument("--batch_size", type=int, help="batch size", default=1024)
-    parser.add_argument("--data-root", type=str, default='/work/tesi_asaporita/MissingModalities/datasets') 
+    parser.add_argument("--data-root", type=str, default='/work/tesi_asaporita/datasets') 
     parser.add_argument(
         "--save_name", type=str, help="name to save the model", default="1e-1",
     ) 
@@ -222,7 +222,7 @@ if __name__ == "__main__":
     device = "cuda"  # or 'cpu'
     device = torch.device(device)
 
-    base_path = "/work/tesi_asaporita/UnseenModalities-VL/{}/{}/checkpoint/".format(args.dataset, args.modality)
+    base_path = "/work/tesi_asaporita/checkpoint/{}/{}/checkpoint/".format(args.dataset, args.modality)
     if not os.path.exists(base_path):
         os.mkdir(base_path)
 

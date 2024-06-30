@@ -119,13 +119,13 @@ if __name__ == "__main__":
         "--train_data_path",
         type=str,
         help="path to train data",
-        default="/work/tesi_asaporita/UnseenModalities-VL/webdataset/mmimdbtraining-{000..010}.tar",
+        default="/work/tesi_asaporita/webdataset/mmimdbtraining-{000..010}.tar",
     )
     parser.add_argument(
         "--val_data_path",
         type=str,
         help="path to validation data",
-        default="/work/tesi_asaporita/UnseenModalities-VL/webdataset/mmimdb-validation-{000..003}.tar",
+        default="/work/tesi_asaporita/webdataset/mmimdb-validation-{000..003}.tar",
     )
     parser.add_argument(
         "--n_train_samples", type=int, help="number of training samples", default=32278,

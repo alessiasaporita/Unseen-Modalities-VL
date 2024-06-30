@@ -24,14 +24,14 @@ if __name__ == "__main__":
     parser.add_argument(
         "--image_path",
         type=str,
-        default="/work/tesi_asaporita/UnseenModalities-VL/image/checkpoint/image_9.pt",
+        default="/work/tesi_asaporita/checkpoint/dataset/image/checkpoint/checkpoint.pt",
     )
     parser.add_argument(
         "--text_path",
         type=str,
-        default="/work/tesi_asaporita/UnseenModalities-VL/text/checkpoint/text_13.pt",
+        default="/work/tesi_asaporita/checkpoint/dataset/text/checkpoint/checkpoint.pt",
     )
-    parser.add_argument("--data-root", type=str, default='/work/tesi_asaporita/MissingModalities/datasets') 
+    parser.add_argument("--data-root", type=str, default='/work/tesi_asaporita/datasets') 
     parser.add_argument(
         "--modality", type=str, help="image or text", default="image",
     ) 

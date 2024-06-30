@@ -4,7 +4,6 @@ Output/
 *.sh
 *.npy
 wandb/
-logs/*.csv
 
 !bash2.sh
 !webdataset.sh

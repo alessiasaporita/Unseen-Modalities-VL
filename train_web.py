@@ -204,13 +204,13 @@ if __name__ == "__main__":
         "--train_data_path",
         type=str,
         help="path to train data",
-        default="/work/tesi_asaporita/UnseenModalities-VL/webdataset/food101-training-{000..020}.tar",
+        default="/work/tesi_asaporita/webdataset/food101-training-{000..020}.tar",
     )
     parser.add_argument(
         "--val_data_path",
         type=str,
         help="path to validation data",
-        default="/work/tesi_asaporita/UnseenModalities-VL/webdataset/food101-validation-{000..004}.tar",
+        default="/work/tesi_asaporita/webdataset/food101-validation-{000..004}.tar",
     )
     parser.add_argument(
         "--n_train_samples", type=int, help="number of training samples", choices=[61127, 32278, 8500], default=61127,
@@ -274,7 +274,7 @@ if __name__ == "__main__":
     device = "cuda"  # or 'cpu'
     device = torch.device(device)
 
-    base_path = "/work/tesi_asaporita/UnseenModalities-VL/checkpoints/"
+    base_path = "/work/tesi_asaporita/checkpoint/{}/".format(args.dataset)
     if not os.path.exists(base_path):
         os.mkdir(base_path)
 

@@ -32,7 +32,7 @@ if __name__ == "__main__":
         type=str,
         default="",
     )
-    parser.add_argument("--data-root", type=str, default='/work/tesi_asaporita/MissingModalities/datasets') 
+    parser.add_argument("--data-root", type=str, default='/work/tesi_asaporita/datasets') 
     parser.add_argument(
         "--save_name", type=str, help="name to save the predictions", default="1e4",
     )

@@ -31,21 +31,21 @@ if __name__ == "__main__":
     parser.add_argument(
         "--image_path",
         type=str,
-        default="/work/tesi_asaporita/UnseenModalities-VL/Food101/image/checkpoint/image_9.pt",
+        default="/work/tesi_asaporita/checkpoint/dataset/image/checkpoint/image_9.pt",
     )
     parser.add_argument(
         "--text_path",
         type=str,
-        default="/work/tesi_asaporita/UnseenModalities-VL/Food101/text/checkpoint/text_13.pt",
+        default="/work/tesi_asaporita/checkpoint/dataset/text/checkpoint/text_13.pt",
     )
     parser.add_argument("--dataset", default='Food101', type=str, choices=["mmimdb", "Hatefull_Memes", "Food101"])
     parser.add_argument("--finetuning", type=bool, default=False) 
-    parser.add_argument("--data-root", type=str, default='/work/tesi_asaporita/MissingModalities/datasets') 
+    parser.add_argument("--data-root", type=str, default='/work/tesi_asaporita/datasets') 
     parser.add_argument(
         "--save_name", type=str, help="name to save the predictions", default="1e4",
     )
     parser.add_argument(
-        "--resume_checkpoint", type=str, help="path to the checkpoint file", default="checkpoints/best_multimodal_KL",
+        "--resume_checkpoint", type=str, help="path to the checkpoint file", default="checkpoint/best_multimodal_KL",
     )
     parser.add_argument(
         "--num_classes", type=int, help="number of classes samples", default=101,
